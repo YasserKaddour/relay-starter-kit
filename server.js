@@ -17,6 +17,13 @@ function startAppServer(callback) {
   // Serve the Relay app
   const compiler = webpack({
     entry: path.resolve(__dirname, 'js', 'app.js'),
+    devtool:'source-map',
+    resolve: {
+      alias: {
+        'react': 'preact-compat',
+        'react-dom': 'preact-compat'
+      }
+    },
     module: {
       loaders: [
         {
